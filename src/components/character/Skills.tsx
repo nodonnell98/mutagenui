@@ -1,18 +1,18 @@
 import React from 'react';
-import { Character } from '../types/Character';
+import { Character } from '../../types/Character';
 
-interface CharacterTraitsProps {
+interface SkillProps {
   character: Character | null;
 }
 
-const CharacterTraits: React.FC<CharacterTraitsProps> = ({ character }) => {
+const Skill: React.FC<SkillProps> = ({ character }) => {
   return (
     <div>
-    <h3>Trait:</h3>
+    <h3>Skills:</h3>
     <ul>
   {character?.character_attributes &&
     Object.entries(character.character_attributes)
-      .filter(([, { category }]) => category === 'trait')
+      .filter(([, { category }]) => category === 'skill')
       .map(([attribute, { value }]) => (
         <li key={attribute}>
           {attribute}: {value}
@@ -25,4 +25,4 @@ const CharacterTraits: React.FC<CharacterTraitsProps> = ({ character }) => {
   );
 };
 
-export default CharacterTraits;
+export default Skill;

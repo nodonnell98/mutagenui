@@ -1,10 +1,11 @@
-import CharacterDetails from '../components/CharacterDetails';
+import Details from '../components/character/Details';
 import React, { useEffect, useState } from 'react';
 import RaceDetails from '../components/RaceDetails';
-import CharacterTraits from '../components/CharacterTraits';
+import Traits from '../components/character/Traits';
 import { fetchCharacter } from '../services/characterService';
 import { Character } from '../types/Character';
 import { useParams } from 'react-router-dom';
+import Skills from '../components/character/Skills';
 
 const CharacterPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,14 +18,15 @@ const CharacterPage: React.FC = () => {
     };
 
     fetchCharacterData();
-  }, []);
+  }, [id]);
 
   return (
     <div className="w-100 bg-gray-800 text-white h-screen p-5">
       <div className='w-100 p-5 flex justify-start space-x-5'>
-        <CharacterDetails character={character} />
+        <Details character={character} />
         <RaceDetails character={character} />
-        <CharacterTraits character={character} />
+        <Traits character={character} />
+        <Skills character={character} />
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ export default function Characters() {
       {characters && (
         <ul className='w-100 mt-5 grid grid-cols-4 gap-4'>
           {characters.map((character) => (
-            <Link to={`/character/${character.id}`} className='text-white flex justify-center items-center border-solid border-2 border-teal-300 rounded-xl bg-cyan-800 hover:scale-105 cursor-pointer p-3' key={character.name}>{character.name}</Link>
+            <Link to={`/character/${character.id}`} className='text-white flex justify-center items-center border-solid border-2 border-teal-300 rounded-xl bg-teal-800 hover:scale-105 cursor-pointer p-3' key={character.name}>{character.name}</Link>
           ))}
         </ul>
       )}
