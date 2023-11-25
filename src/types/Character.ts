@@ -4,6 +4,7 @@ interface CharacterAttribute {
 }
 
 export interface Character {
+  id: number; 
   name: string;
   description: string;
   race_id: number;

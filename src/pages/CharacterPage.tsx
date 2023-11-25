@@ -4,12 +4,15 @@ import RaceDetails from '../components/RaceDetails';
 import CharacterTraits from '../components/CharacterTraits';
 import { fetchCharacter } from '../services/characterService';
 import { Character } from '../types/Character';
+import { useParams } from 'react-router-dom';
 
 const CharacterPage: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const [character, setCharacter] = useState<Character | null>(null);
+
   useEffect(() => {
     const fetchCharacterData = async () => {
-      const data = await fetchCharacter(1);
+      const data = await fetchCharacter(parseInt(id!));
       setCharacter(data);
     };
 
