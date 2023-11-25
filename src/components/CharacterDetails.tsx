@@ -7,7 +7,7 @@ interface CharacterDetailsProps {
 
 const CharacterDetails: React.FC<CharacterDetailsProps> = ({ character }) => {
   return (
-    <div>
+    <div className='p-2 border-teal-300 border-2 rounded-md bg-slate-700'>
       <h2>{character?.name}</h2>
       <p>{character?.description}</p>
       <p>Health: {character?.current_health}</p>

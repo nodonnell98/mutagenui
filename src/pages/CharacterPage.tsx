@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
 import CharacterDetails from '../components/CharacterDetails';
+import React, { useEffect, useState } from 'react';
 import RaceDetails from '../components/RaceDetails';
+import CharacterTraits from '../components/CharacterTraits';
 import { fetchCharacter } from '../services/characterService';
 import { Character } from '../types/Character';
 
@@ -17,10 +17,12 @@ const CharacterPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="">
-      <Header />
-      <RaceDetails character={character} />
-      <CharacterDetails character={character} />
+    <div className="w-100 bg-gray-800 text-white h-screen p-5">
+      <div className='w-100 p-5 flex justify-start space-x-5'>
+        <CharacterDetails character={character} />
+        <RaceDetails character={character} />
+        <CharacterTraits character={character} />
+      </div>
     </div>
   );
 };

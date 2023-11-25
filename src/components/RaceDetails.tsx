@@ -10,11 +10,7 @@ const RaceDetails: React.FC<RaceDetailsProps> = ({ character }) => {
     <div>
     <h3>Race:</h3>
     <ul>
-      {character?.race && Object.entries(character.race).map(([race, value]) => (
-        <li key={race}>
-          {race}: {value}
-        </li>
-      ))}
+        <li>{character?.race && character.race.name}</li>
     </ul>
   </div>
   );
