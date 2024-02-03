@@ -27,7 +27,7 @@ const Rules = () => {
   return (
     <div className='flex h-screen pt-24'>
       {/* Sidebar */}
-      <div className='w-1/4 p-4 bg-gray-900'>
+      <div className='w-1/4 p-4 bg-gray-900 overflow-y-auto'>
         <h2 className='text-xl font-bold mb-4'>Rule Headings</h2>
         <input
           type='text'
