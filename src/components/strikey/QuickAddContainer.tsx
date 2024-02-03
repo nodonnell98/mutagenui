@@ -9,7 +9,7 @@ interface QuickAddContainerProps {
 }
 
 const QuickAddContainer: React.FC<QuickAddContainerProps> = ({ items, type, quickAdd }) => (
-  <div className='quick-add'>
+  <div className='quick-add h-24'>
           {items.map((item, index) => (
             <QuickAddButton
               key={index}

@@ -18,11 +18,10 @@ const ModifierContainer: React.FC<ModifierContainerProps> = ({ type, items, quic
         <input className='py-2 bg-teal-800 rounded-md border-2 border-teal-500 text-center grow' type="text" id={type === 'penalty' ? 'penaltyName' : 'bonusName'} placeholder={type === 'penalty' ? 'Penalty Name' : 'Bonus Name'} />
         <input className='py-2 bg-teal-800 rounded-md border-2 border-teal-500 text-center grow' type="number" id={type === 'penalty' ? 'penaltyValue' : 'bonusValue'} placeholder={type === 'penalty' ? 'Penalty Value' : 'Bonus Value'} />
       </div>
-      <button className="py-1 bg-teal-500 rounded-md w-full" type="button" onClick={() => addModifier(type)}>{type === 'penalty' ? 'Add Penalty' : 'Add Bonus'}</button>
+      <button className="py-1 bg-teal-500 rounded-md w-full ease-in-out duration-300 hover:scale-105" type="button" onClick={() => addModifier(type)}>{type === 'penalty' ? 'Add Penalty' : 'Add Bonus'}</button>
     </div>
     <QuickAddContainer items={items} type={type} quickAdd={quickAdd} />
-    <ul className="bg-teal-950 shadow-inner p-5 w-full flex flex-col" id={type === 'penalty' ? 'penaltyList' : 'bonusList'}></ul>
-    <p>{ type} Total:</p>
+    <ul className="bg-teal-950 shadow-inner p-5 w-full grid grid-cols-2 gap-1 gap-y-2 auto-rows-max h-52" id={type === 'penalty' ? 'penaltyList' : 'bonusList'}></ul>
   </div>
 );
 
