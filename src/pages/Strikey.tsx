@@ -149,13 +149,13 @@ const Strikey = () => {
   const stats = ['strength', 'constitution', 'discipline', 'will', 'intelligence', 'sense'];
 
   return (
-    <div className="w-screen h-screen items-center flex justify-center flex-col space-y-12 overflow-y-auto">
+    <div className="w-screen h-screen items-center flex justify-center flex-col space-y-6 overflow-y-auto mt-12">
         <h1 className='text-5xl font-bold'>Srike Assistant Module</h1>
-          <div className="flex justify-between w-100 space-x-3">
-        {stats.map((stat, index) => (
-          <StatInput key={index} name={stat} statChange={handleStatChange} />
-            ))}
-          </div>
+        <div className="flex justify-between w-100 space-x-3">
+          {stats.map((stat, index) => (
+            <StatInput key={index} name={stat} statChange={handleStatChange} />
+              ))}
+        </div>
       <form id="rollhtmlForm">
         <div className='flex space-x-5'>
           <ModifierContainer type='bonus' items={quickAddBonuses} quickAdd={quickAdd} addModifier={addModifier} />
