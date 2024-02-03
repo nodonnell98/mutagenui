@@ -16,4 +16,7 @@ export interface Character {
   race: {
     [key: string]: string;
   };
+  mutation: {
+    [key: string]: string;
+  };
 }

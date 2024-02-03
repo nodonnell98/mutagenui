@@ -12,6 +12,7 @@ const Details: React.FC<DetailsProps> = ({ character }) => {
       <p>{character?.description}</p>
       <p>Current Health: {character?.current_health}</p>
       <p>Level: {character?.level}</p>
+      <p>Mutation: {character?.mutation && character.mutation.name}</p>
     </div>
   );
 };

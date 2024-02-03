@@ -16,7 +16,7 @@ export default function Characters() {
   }, []);
 
   return (
-    <div className='h-screen bg-slate-800 p-5 flex justify-start flex-col items-center'>
+    <div className='h-screen p-5 flex justify-start flex-col items-center'>
       <h1 className='font-mono text-4xl text-white mt-12'>Characters</h1>
       {characters && (
         <ul className='w-100 mt-5 grid grid-cols-4 gap-4'>

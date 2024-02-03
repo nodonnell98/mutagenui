@@ -21,7 +21,7 @@ const CharacterPage: React.FC = () => {
   }, [id]);
 
   return (
-    <div className="w-100 bg-gray-800 text-white h-screen p-5">
+    <div className="w-100 text-white h-screen p-5">
       <div className='w-100 p-5 flex justify-start space-x-5'>
         <Details character={character} />
         <RaceDetails character={character} />

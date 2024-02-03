@@ -11,6 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   box-sizing: border-box;
+  color: #fbf5db;
 }
 
 code {
@@ -20,8 +21,10 @@ code {
 
 html {
   height: 100vh;
+  color: #fbf5db
 }
 
 #root {
   height: 100%;
+  background-color: #233039;
 }
