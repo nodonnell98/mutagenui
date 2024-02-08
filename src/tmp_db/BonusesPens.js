@@ -2,7 +2,8 @@ const quickAddBonuses = [
   { text: 'Unbalanced 1', value: 5 },
   { text: 'Aim', value: 10 },
   { text: 'Proficient', value: 10 },
-  { text: 'Crowded', value: 3 }
+  { text: 'Crowded', value: 3 },
+  { text: 'Prone', value: 15 },
   ]
 const quickAddPenalties = [
   { text: 'Half Cover', value: 5 },

@@ -16,13 +16,15 @@ const Strikey = () => {
   const [currentThreshold, setCurrentThreshold] = useState<number>(0);
   const [resultClass, setResultClass] = useState<string>('');
 
-  useEffect(() => {
-    updateThreshold();
-  }, [bonuses, penalties]);
-
   const handleStatChange = () => {
     updateThreshold();
   };
+
+  useEffect(() => {
+    updateThreshold();
+  } , [bonuses, penalties]);
+  
+  
 
   const updateThreshold = () => {
     const statSelection = document.getElementById('statSelection') as HTMLSelectElement | null;
@@ -60,7 +62,6 @@ const Strikey = () => {
             return newBonuses;
           });
         } else {
-
           setPenalties((prevPenalties: Modifier[]) => {
             const newPenalties = [...prevPenalties, modifier];
             updateList('penaltyList', newPenalties);
@@ -70,6 +71,7 @@ const Strikey = () => {
       }
     }
   };
+  
   
 
   const updateList = (listId: string, items: any[]) => {
@@ -114,7 +116,6 @@ const Strikey = () => {
       const selectedStatIndex = statSelection.selectedIndex;
       const selectedStat = statSelection.options[selectedStatIndex].value;
       const statInput = document.getElementById(selectedStat) as HTMLInputElement;
-      const resultDiv = document.getElementById('result');
 
       const threshold = Number(statInput.value);
 
@@ -150,7 +151,7 @@ const Strikey = () => {
 
   return (
     <div className="w-screen h-screen items-center flex justify-center flex-col space-y-6 overflow-y-auto mt-12">
-        <h1 className='text-5xl font-bold'>Srike Assistant Module</h1>
+        <h1 className='text-5xl font-bold'>Strike Assistant Module</h1>
         <div className="flex justify-between w-100 space-x-3">
           {stats.map((stat, index) => (
             <StatInput key={index} name={stat} statChange={handleStatChange} />

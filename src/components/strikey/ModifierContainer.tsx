@@ -21,7 +21,7 @@ const ModifierContainer: React.FC<ModifierContainerProps> = ({ type, items, quic
       <button className="py-1 bg-teal-500 rounded-md w-full ease-in-out duration-300 hover:scale-105" type="button" onClick={() => addModifier(type)}>{type === 'penalty' ? 'Add Penalty' : 'Add Bonus'}</button>
     </div>
     <QuickAddContainer items={items} type={type} quickAdd={quickAdd} />
-    <ul className="bg-teal-950 shadow-inner p-5 w-full grid grid-cols-2 gap-1 gap-y-2 auto-rows-max h-52" id={type === 'penalty' ? 'penaltyList' : 'bonusList'}></ul>
+    <ul className="bg-teal-950 shadow-inner p-3 w-full grid grid-cols-2 gap-2 gap-y-2 auto-rows-max h-52" id={type === 'penalty' ? 'penaltyList' : 'bonusList'}></ul>
   </div>
 );
 
