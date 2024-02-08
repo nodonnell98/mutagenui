@@ -1,5 +1,5 @@
 // components/Strikey/Strikey.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import StatInput from '../components/strikey/StatInput';
 import ModifierContainer from '../components/strikey/ModifierContainer';
 import { quickAddBonuses, quickAddPenalties } from '../tmp_db/BonusesPens';
@@ -16,17 +16,8 @@ const Strikey = () => {
   const [currentThreshold, setCurrentThreshold] = useState<number>(0);
   const [resultClass, setResultClass] = useState<string>('');
 
-  const handleStatChange = () => {
-    updateThreshold();
-  };
 
-  useEffect(() => {
-    updateThreshold();
-  } , [bonuses, penalties]);
-  
-  
-
-  const updateThreshold = () => {
+  const updateThreshold = useCallback(() => {
     const statSelection = document.getElementById('statSelection') as HTMLSelectElement | null;
     if (statSelection) {
       const selectedStatIndex = statSelection.selectedIndex;
@@ -40,7 +31,16 @@ const Strikey = () => {
       const finalThreshold = threshold + totalBonus - totalPenalty;
       setCurrentThreshold(finalThreshold);
     }
+  }, [bonuses, penalties, setCurrentThreshold]);
+
+  const handleStatChange = () => {
+    updateThreshold();
   };
+
+  useEffect(() => {
+    updateThreshold();
+  } , [bonuses, penalties, updateThreshold]);
+  
 
   const addModifier = (type: string) => {
     const nameInputId = type === 'bonus' ? 'bonusName' : 'penaltyName';
