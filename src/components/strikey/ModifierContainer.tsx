@@ -11,7 +11,7 @@ interface ModifierContainerProps {
 
 const ModifierContainer: React.FC<ModifierContainerProps> = ({ type, items, quickAdd, addModifier }) => (
   
-  <div className="htmlForm-group bg-teal-900 p-5 flex flex-col space-y-5 rounded-md w-1/2">
+  <div className="htmlForm-group bg-teal-900 p-5 flex flex-col space-y-5 rounded-md mb-2 sm:mb-0 sm:w-1/2">
     <label className="text-2xl font-bold" htmlFor={type === 'penalty' ? 'penalties' : 'bonuses'}>{type === 'penalty' ? 'Penalties' : 'Bonuses'}</label>
     <div className="flex flex-col justify-center items-center space-y-3">
       <div className="flex space-x-3 w-full">
