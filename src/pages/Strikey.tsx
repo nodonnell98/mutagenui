@@ -150,30 +150,49 @@ const Strikey = () => {
   const stats = ['strength', 'constitution', 'discipline', 'will', 'intelligence', 'sense'];
 
   return (
-    <div className="w-screen h-screen items-center flex justify-center flex-col space-y-6 overflow-y-auto mt-12">
-        <h1 className='text-5xl font-bold'>Strike Assistant Module</h1>
-        <div className="flex justify-between w-100 space-x-3">
+    <div className="w-screen sm:items-center flex justify-center flex-col overflow-y-auto sm:h-screen sm:space-y-6 sm:mt-12">
+        <h1 className='invisible font-bold sm:visible sm:shown sm:text-5xl'>Strike Assistant Module</h1>
+        <div className="flex w-screen flex-wrap pb-2 sm:pb-0 justify-around sm:justify-between w-100 sm:space-x-3 sm:w-auto">
           {stats.map((stat, index) => (
             <StatInput key={index} name={stat} statChange={handleStatChange} />
               ))}
         </div>
       <form id="rollhtmlForm">
-        <div className='flex space-x-5'>
+      <div className='flex flex-col sm:flex-row sm:space-x-5'>
           <ModifierContainer type='bonus' items={quickAddBonuses} quickAdd={quickAdd} addModifier={addModifier} />
           <ModifierContainer type='penalty' items={quickAddPenalties} quickAdd={quickAdd} addModifier={addModifier} />
         </div>
-          <div className='flex space-x-3 items-center mt-5'>
+          
+          {/* calculation section for small and larger screens */}
+          <div className='hidden sm:flex sm:flex-wrap space-x-3 items-center mt-5'>
             <div className="htmlForm-group rounded-md bg-teal-900 p-3">
-              <label className="" htmlFor="statSelection">Select Stat:</label>
+              <label htmlFor="statSelection">Select Stat:</label>
+              <select className='bg-inherit rounded-md border-2 border-teal-500 p-1 sm:p-2 ml-2 sm:ml-3' id="statSelection" name="statSelection" onChange={handleStatChange}>
+                {stats.map((stat, index) => (
+                  <option key={index} value={stat.toLowerCase()}>{stat.toUpperCase()}</option>
+                ))}
+              </select>
+            </div>
+          <p className='rounded-md bg-teal-900 p-2 sm:p-5'>Success: {currentThreshold} Crit: { Math.floor(currentThreshold / 4)} </p>
+            <button className="bg-teal-500 h-full sm:p-5 rounded-md ease-in-out duration-300 hover:scale-105" type="button" onClick={() => rollD100()}>ROLL</button>
+          <div className={`bg-teal-950 shadow-inner sm:p-5 grow h-full rounded-md result border-2 border-teal-700 ${resultClass}`} id="result">{result}</div>
+          </div>
+
+          {/* calculation section for below small screens */}
+          <div className='flex sm:hidden flex-wrap space-x-3 items-center justify-center'>
+            <div className="htmlForm-group rounded-md bg-teal-900 p-3">
+              <label htmlFor="statSelection">Select Stat:</label>
               <select className='bg-inherit rounded-md border-2 border-teal-500 p-2 ml-3' id="statSelection" name="statSelection" onChange={handleStatChange}>
                 {stats.map((stat, index) => (
                   <option key={index} value={stat.toLowerCase()}>{stat.toUpperCase()}</option>
                 ))}
               </select>
             </div>
-          <p className='rounded-md bg-teal-900 p-5'>Success: {currentThreshold} Crit: { Math.floor(currentThreshold / 4)} </p>
-            <button className="bg-teal-500 h-full p-5 rounded-md ease-in-out duration-300 hover:scale-105" type="button" onClick={() => rollD100()}>ROLL</button>
-          <div className={`bg-teal-950 shadow-inner p-5 grow h-full rounded-md result border-2 border-teal-700 ${resultClass}`} id="result">{result}</div>
+            <button className="bg-teal-500 h-full p-5 rounded-md ease-in-out duration-300" type="button" onClick={() => rollD100()}>ROLL</button>
+            <div className='flex py-2'>
+          <p className='rounded-md bg-teal-900 p-5 mr-2'>Success: {currentThreshold} Crit: { Math.floor(currentThreshold / 4)} </p>
+          <div className={`bg-teal-950 shadow-inner p-5 h-full rounded-md result border-2 border-teal-700 ${resultClass}`} id="result">{result}</div>
+          </div>
           </div>
         </form>
     </div>
